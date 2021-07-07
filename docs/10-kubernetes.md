@@ -25,4 +25,3 @@ Kubernetes es un sistema de orquestación de contenedores, lo que significa que 
 
 Para mas información acerca de Kubernetes pueden dirigirse a su [Página-Oficial](https://kubernetes.io/) o pueden realizar este [Curso](https://www.youtube.com/watch?v=5ovqsvqwtZM&feature=youtu.be) completamente **Gratis** para afianzar los conocimientos en la herramienta. 🤓
 
-Adicionalmente, se han dispuesto una serie de [Ejercicios](https://github.com/Diegonavia/Onboarding-DevOps/tree/master/Kubernetes) para mejorar el dominio en Kubernetes.
