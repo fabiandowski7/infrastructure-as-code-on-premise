@@ -20,4 +20,3 @@ Algunas de las características más importantes de Git son:
 
 Para tener una mejor idea de como funciona GIT puede realizar este [Curso](https://codigofacilito.com/cursos/git) gratis en cualquier momento si así lo desea. 🤓
 
-Para mayor dominio de la herramienta, se han creado una serie de [Ejercicios](https://github.com/Diegonavia/Onboarding-DevOps/tree/master/GIT) con diferente nivel de dificultad para dominlarla.
