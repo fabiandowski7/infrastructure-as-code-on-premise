@@ -1,14 +1,24 @@
-# infrastructure-as-code-on-premise
+# Onboarding-DevOps 💥
+Repositorio creado para el entrenamiento y Onboarding de nuevos DevOps que se integren al equipo 😎 
 
-This tutorial is intended to show what the **Infrastructure as Code** (**IaC**) is, why we need it, and how it can help you manage your infrastructure more efficiently.
+## Resumen 📃
+Este proyecto está orientado a todos los DevOps que se integren al equipo de Concrete, con la finalidad de adaptarse a las tecnologías utilizadas en el proyecto, así como también herramientas esenciales para cualquier DevOps.
 
-It is practice-based, meaning I don't give much theory on what Infrastructure as Code is in the beginning of the tutorial, but instead let you feel it through the practice first. At the end of the tutorial, I summarize some of the key points about Infrastructure as Code based on what you learn through the labs.
+## Prerrequisitos :exclamation:
 
-This tutorial is not meant to give a complete guide on how to use a specific tool like Ansible or Terraform, instead it focuses on how these tools work in general and what problems they solve.
+- Tener conocimientos previos en algunas de las herramientas utilizadas en este Onboarding. 
+- Familiarizarse con la Infraestructura del proyecto 
+- Editor de código fuente donde almacenar las carpetas y el código, utilizaremos Visual Studio Code versión 1.36.31 (Recomendación) :nerd_face:
 
-> The tutorial was inspired by [Kubernetes the Hard Way](https://github.com/kelseyhightower/kubernetes-the-hard-way) tutorial. I used it as an example to structure this one.
+## Primeros pasos :walking:
 
-_See [my presentation at DevOpsDays Silicon Valley](https://www.youtube.com/watch?v=XbcW2B7roLo&t=) in which I talk more in depth about the tutorial._
+- Familiarizarse con la Infraestructura del proyecto Infraestructura y todos sus componentes.
+- Conocer los componentes que integran el proyecto y las herramientas utilizadas para la realización de las actividades diarias. 
+- Leer este [Artículo](https://medium.com/@devfire/how-to-become-a-devops-engineer-in-six-months-or-less-366097df7737) aquellos DevOps que están iniciando en la posición, para que se tenga claro hacia que apunta esta cultura, y como integrar las distintas herramientas.
+- En este [Road-Map](https://roadmap.sh/devops) encontrarán las principales herramientas y tecnologías que un **DevOps** debería dominar, o al menos tener un conocimiento teórico de las mismas. 
+
+En este Onboarding se abundarán las principales herramientas de este RoadMap, pero queda en cada uno de ustedes seguir aprendiendo cada día y seguir capacitandose con cada una de las tecnologías mencionadas.
+
 
 ## Need your help!
 
@@ -26,8 +36,9 @@ Also, note that some of things need to be updated in several different repositor
 
 El público objetivo de este tutorial es cualquier persona interesada o que trabaje en TI.
 
-## Herramientas Utilizadas
+## Herramientas Utilizadas en el Proyecto 	💻
 
+* Git
 * Consul
 * Jenkins
 * Packer
