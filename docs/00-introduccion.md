@@ -6,7 +6,7 @@ Infraestructura como código es un método de aprovisionamiento y gestión de in
 
 **Beneficios de IaC**
 
-**Rapidez**
+### Rapidez
 El diseño de una infraestructura con código permite agilizar de manera significativa el despliegue posterior de manera rápida y segura. IaC permite desplegar toda una infraestructura que podría llevar horas o días enteros ejecutando tan sólo un script en cuestión de unos pocos minutos.
 
 Si bien es cierto que el desarrollo del código que permitirá el despliegue de la infraestructura puede ser igual de costoso que un despliegue inicial, aporta la ventaja de que es reutilizable por lo que se pueden importar snippets que automaticen partes y cuando la biblioteca de recursos estándar ya está poblada se reduce mucho el tiempo de desarrollo, esto sin contar que además en caso de tener que levantar varios entornos de la misma arquitectura es donde se demuestra realmente la rapidez de IaC ya que una vez desarrollado permite replicarlo en cuestión de minutos.
