@@ -27,5 +27,3 @@ El resultado es una infraestructura muy elástica, escalable y replicable gracia
 
 Para mas información acerca de Terraform pueden dirigirse a su [Página-Oficial](https://www.terraform.io/) o pueden realizar este [Curso](https://www.youtube.com/watch?v=ec4qHgJQM7c&list=PLfW3im2fiA7XDjPgS9uzgv5Zeyhi_QE9Y) completamente **Gratis** para afianzar los conocimientos en la herramienta. 🤓
 
-Adicionalmente, se han dispuesto una serie de [Ejercicios](https://github.com/Diegonavia/Onboarding-DevOps/tree/master/Terraform) para mejorar el dominio en Terraform.
-
