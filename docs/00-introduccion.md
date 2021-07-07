@@ -4,19 +4,40 @@
 
 Infraestructura como código es un método de aprovisionamiento y gestión de infraestructura IT y servicios a través del uso de código fuente, sustituyendo el procedimiento estándar de operación. Básicamente consiste en tratar los servidores, bases de datos, redes y otros elementos de infraestructura como si fuera software. Este código facilita el despliegue de esta infraestructura de un modo rápido, seguro y consistente.
 
+**Beneficios de IaC**
 
-Let's dream for a little bit...
+**Rapidez**
+El diseño de una infraestructura con código permite agilizar de manera significativa el despliegue posterior de manera rápida y segura. IaC permite desplegar toda una infraestructura que podría llevar horas o días enteros ejecutando tan sólo un script en cuestión de unos pocos minutos.
 
-Imagine that you're a young developer who developed a web application. You run and test your application locally and everything works great, which makes you very happy. You believe that this is going to blow the minds of Internet users and bring you a lot of money.
+Si bien es cierto que el desarrollo del código que permitirá el despliegue de la infraestructura puede ser igual de costoso que un despliegue inicial, aporta la ventaja de que es reutilizable por lo que se pueden importar snippets que automaticen partes y cuando la biblioteca de recursos estándar ya está poblada se reduce mucho el tiempo de desarrollo, esto sin contar que además en caso de tener que levantar varios entornos de la misma arquitectura es donde se demuestra realmente la rapidez de IaC ya que una vez desarrollado permite replicarlo en cuestión de minutos.
 
-Then you realize that there is a small problem. You ask yourself a question: "How do I make my application available to the Internet users?"
+**Automatización**
+La automatización en la replicación de infraestructura es otro punto interesante de la IaC. Es posible tomar el diseño de una infraestructura con código para que sea replicada exactamente igual en otro entorno únicamente modificando los parámetros que se proporcionan durante la creación.
 
-You're thinking that you can't run the application locally all the time, because your old laptop will become slow for other tasks and will probably crash if a lot of users will be using your app at the same time. Besides, your ISP changes randomly the public IP for your router, so you don't know on which IP address your application will be accessible to the public at any given moment.
+Además las herramientas de IaC normalmente ofrecen APIs que permiten automatizar la ejecución del IaC integrándola con herramientas de “Continuos Delivery” (Jenkins, Drone) para integrar dentro de los ciclos de pruebas la creación de un entorno sobre el que ejecutar las pruebas y destruirlo a la finalización.
 
-You start realizing that the problem you're facing is not as small as you thought. In fact, there is a whole new craft for you to learn in IT world about running software applications and making sure they are always available to the users.
+Adicionalmente nos ofrece la posibilidad de automatizar la creación de entornos de Disaster Recovery, si los tiempos de RTO y RPO nos lo permiten podemos tener simplemente en una localización alternativa las copias de seguridad de los datos y recrear la infraestructura solo en caso de desastre, con lo que se reduce al mínimo el coste de un entorno DR.
 
-The craft is called **IT operations**. And in almost every IT department, there is an operations (Ops) team who manages the platform where the applications are running.
+**Minimización de riesgos**
+Otra de las ventajas que ofrece IaC es la minimización de riesgos. Cuando se despliega infraestructura manualmente es inevitable que en algún momento se cometa un error. IaC permite hacer las comprobaciones necesarias antes de desplegar para que exista una consistencia, minimizando al máximo los errores anteriormente comentados. Aunque un despliegue de un servidor, por poner un ejemplo, es barato, el tiempo del ingeniero que lo despliega no lo es tanto. De modo que si se comete un error de base, como la creación de una red con datos incorrectos, y posteriormente hay que crear una cantidad concreta de servidores sobre esta red, será necesario dar marcha atrás a todo el proceso.
 
-The tutorial you are about to begin will give you, a young developer, a bit of a glance into what operations work look like and how you can do this work more efficiently by using **Infrastructure as Code** approach.
+**Actualizaciones controladas y rollbacks**
+Los sistemas de IaC permiten la actualización de los stacks proporcionando un fichero actualizado y pidiendo que en lugar de crear un  nuevo stack procede a actualizar uno existente, el sistema se encarga de comprar el fichero con los recursos actualmente desplegados y se encarga de hacer únicamente los cambios necesarios.
 
-Next: [Prerequisites](01-prerequisites.md)
+Si los ficheros descriptivos los tenemos en un sistema de control de versiones además podremos hacer rollback fácilmente a versiones anteriores y comparar los cambios entre una versión y otro.
+
+
+
+Imagina que eres un desarrollador joven que desarrolló una aplicación web. Ejecutas y pruebas tu aplicación localmente y todo funciona muy bien, lo que te hace muy feliz. Crees que esto va a hacer volar la mente de los usuarios de Internet y te traerá mucho dinero.
+
+Entonces te das cuenta de que hay un pequeño problema. Te haces una pregunta: "¿Cómo hago que mi aplicación esté disponible para los usuarios de Internet?"
+
+Está pensando que no puede ejecutar la aplicación localmente todo el tiempo, porque su vieja computadora portátil se volverá lenta para otras tareas y probablemente fallará si muchos usuarios usan su aplicación al mismo tiempo. Además, su ISP cambia aleatoriamente la IP pública de su enrutador, por lo que no sabe en qué dirección IP su aplicación será accesible al público en un momento dado.
+
+Empiezas a darte cuenta de que el problema al que te enfrentas no es tan pequeño como pensabas. De hecho, hay un oficio completamente nuevo para que usted aprenda en el mundo de las TI sobre cómo ejecutar aplicaciones de software y asegurarse de que estén siempre disponibles para los usuarios.
+
+La nave se llama operaciones de TI . Y en casi todos los departamentos de TI, hay un equipo de operaciones (Ops) que administra la plataforma donde se ejecutan las aplicaciones.
+
+El tutorial que está a punto de comenzar le dará a usted, un desarrollador joven, un vistazo de cómo se ven las operaciones y cómo puede hacer este trabajo de manera más eficiente utilizando el enfoque de Infraestructura como código .
+
+Next: [Prerequisitos](01-prerequisitos.md)
