@@ -31,7 +31,3 @@ En el desarrollo de una aplicación, la integración continua se organiza en las
 
 
 Para mas información acerca de Jenkins pueden dirigirse a su [Página-Oficial](https://jenkins.io/) o pueden realizar este [Curso](https://www.youtube.com/watch?v=FX322RVNGj4) completo totalmente gratis. 
-
-Para mayor dominio de la herramienta, se han dispuesto de un conjunto de [Ejercicios](https://github.com/Diegonavia/Onboarding-DevOps/tree/master/Jenkins) de Jenkins para mejorar el dominio de la misma.
-
-Adicional a estos recursos, disponemos de un entrenamiento en la herramienta realizado por uno de nuestros colaboradores, lo puedes encontrar [Aquí](https://github.com/vitorsalgado/ci-cd-training-proposal) lo cual te ayudará en la adopción de CI/CD. 
