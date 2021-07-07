@@ -1,8 +1,5 @@
 # infrastructure-as-code-on-premise
 
-[![license](https://img.shields.io/github/license/Artemmkin/infrastructure-as-code-tutorial.svg)](https://github.com/Artemmkin/infrastructure-as-code-tutorial/blob/master/LICENSE)
-[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Learn%20about%20Infrastructure%20as%20Code%20https%3A%2F%2Fgithub.com%2FArtemmkin%2Finfrastructure-as-code-tutorial%20%20Tutorial%20created%20by%20@artemmkins%20covers%20%23Packer,%20%23Terraform,%20%23Ansible,%20%23Vagrant,%20%23Docker,%20and%20%23Kubernetes.%20%23DevOps)
-
 This tutorial is intended to show what the **Infrastructure as Code** (**IaC**) is, why we need it, and how it can help you manage your infrastructure more efficiently.
 
 It is practice-based, meaning I don't give much theory on what Infrastructure as Code is in the beginning of the tutorial, but instead let you feel it through the practice first. At the end of the tutorial, I summarize some of the key points about Infrastructure as Code based on what you learn through the labs.
@@ -25,11 +22,11 @@ Also, note that some of things need to be updated in several different repositor
 * https://github.com/Artemmkin/infrastructure-as-code-example
 * https://github.com/Artemmkin/raddit
 
-## Target Audience
+## Publico Objetivo
 
-The target audience for this tutorial is anyone who loves or/and works in IT.
+El público objetivo de este tutorial es cualquier persona interesada o que trabaje en TI.
 
-## Tools Covered
+## Herramientas Utilizadas
 
 * Consul
 * Jenkins
@@ -41,15 +38,9 @@ The target audience for this tutorial is anyone who loves or/and works in IT.
 * Docker Compose
 * Kubernetes
 
-## Results of completing the tutorial
+## Laboratorio
 
-By the end of this tutorial, you'll make your own repository looking like [this one](https://github.com/Artemmkin/infrastructure-as-code-example).
-
-NOTE: you can use this [example repository](https://github.com/Artemmkin/infrastructure-as-code-example) in case you get stuck in some of the labs.
-
-## Labs
-
-This tutorial assumes you have access to the Google Cloud Platform. While GCP is used for basic infrastructure requirements the lessons learned in this tutorial can be applied to other platforms.
+Este tutorial asume que tiene acceso a una Plataforma VMware o Nutanix on-premise. Si bien se usan estas plataformas para los requisitos básicos de infraestructura, las lecciones aprendidas en este instructivo se pueden aplicar a otras plataformas.
 
 * [Introduccion](docs/00-introduccion.md)
 * [Prerequisitos](docs/01-prerequisitos.md)
