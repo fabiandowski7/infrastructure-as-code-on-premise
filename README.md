@@ -29,8 +29,6 @@ El público objetivo de este tutorial es cualquier persona interesada o que trab
 
 Este tutorial asume que tiene acceso a una Plataforma VMware o Nutanix on-premise. Si bien se usan estas plataformas para los requisitos básicos de infraestructura, las lecciones aprendidas en este instructivo se pueden aplicar a otras plataformas.
 
-* [Introduccion](docs/00-introduccion.md)
-* [Prerequisitos](docs/01-prerequisitos.md)
 * [Jenkins](docs/02-jenkins.md)
 * [Terraform](docs/03-terraform.md)
 * [Ansible](docs/04-ansible.md)
