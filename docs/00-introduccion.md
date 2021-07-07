@@ -1,6 +1,6 @@
 # Introduccion
 
-### ¿Qué es la Infraestructura como código (IaC)?
+## ¿Qué es la Infraestructura como código (IaC)?
 
 Infraestructura como código es un método de aprovisionamiento y gestión de infraestructura IT y servicios a través del uso de código fuente, sustituyendo el procedimiento estándar de operación. Básicamente consiste en tratar los servidores, bases de datos, redes y otros elementos de infraestructura como si fuera software. Este código facilita el despliegue de esta infraestructura de un modo rápido, seguro y consistente.
 
