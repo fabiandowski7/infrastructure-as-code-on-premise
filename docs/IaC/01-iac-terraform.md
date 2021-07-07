@@ -4,6 +4,11 @@ In the previous lab, you used Packer to make your system configuration faster an
 
 In this lab, we're going to learn about another IaC tool by HashiCorp called [Terraform](https://www.terraform.io/).
 
+## Terraform Diagrama
+
+![image](https://user-images.githubusercontent.com/18565089/124825010-1732b700-df41-11eb-9514-b1d2bd4f25fb.png)
+
+
 ## Intro
 
 Think about your current operations...
