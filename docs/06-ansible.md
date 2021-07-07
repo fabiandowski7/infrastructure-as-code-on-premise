@@ -28,4 +28,3 @@ En Ansible existen dos tipos de servidores:
 
 Para mas información acerca de Ansible pueden dirigirse a su [Página-Oficial](https://www.ansible.com/) o pueden realizar este [Curso](https://www.youtube.com/watch?v=wf_Ax0PpZxI) completamente **Gratis** para afianzar los conocimientos en la herramienta. 🤓
 
-Adicionalmente, se han dispuesto una serie de [Ejercicios](https://github.com/Diegonavia/Onboarding-DevOps/tree/master/Ansible) para mejorar el dominio en Ansible.
