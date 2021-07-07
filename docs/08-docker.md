@@ -26,4 +26,3 @@ Contenedores Docker que se ejecutan en Docker Engine: 🚢
 
 Para mas información acerca de Docker pueden dirigirse a su [Página-Oficial](https://www.docker.com/) o pueden realizar este [Curso](https://codigofacilito.com/cursos/docker) completamente **Gratis** para afianzar los conocimientos en la herramienta. 🤓
 
-Además de esto, se han dispuesto una serie de [Ejercicios](https://github.com/Diegonavia/Onboarding-DevOps/tree/master/Docker) para mejorar el dominio en Docker. 🐳
