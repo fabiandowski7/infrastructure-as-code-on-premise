@@ -10,6 +10,8 @@ Si el resultado no es el esperado o hay algún error, Jenkins notificará al des
 
 Una vez tenemos el código compilado, podrás indicar que se ejecuten las **pruebas**, con métricas de calidad y visualizar los resultados y para finalizar, podrás **desplegar** una versión estable del software al entorno de pruebas para ser **testeado**, en pre-producción o producción. Con el desarrollo disponible, solo queda esperar nuevos reportes de mejora.
 
+<img width="1042" alt="Screen Shot 2020-03-26 at 16 25 07" src="https://user-images.githubusercontent.com/45079819/77688175-62100180-6f7e-11ea-850f-1578849684e7.png">
+
 #### ¿Qué son la integración/distribución continuas (CI/CD)? ✔️
 
 La CI/CD es un método para distribuir aplicaciones a los clientes con frecuencia mediante el uso de la automatización en las etapas del desarrollo de aplicaciones. Los principales conceptos que se atribuyen a la CI/CD son la integración continua, la distribución continua y la implementación continua. La CI/CD es una solución para los problemas que puede generar la integración del código nuevo a los equipos de desarrollo y de operaciones
