@@ -27,17 +27,4 @@ Los sistemas de IaC permiten la actualización de los stacks proporcionando un f
 Si los ficheros descriptivos los tenemos en un sistema de control de versiones además podremos hacer rollback fácilmente a versiones anteriores y comparar los cambios entre una versión y otro.
 
 
-
-Imagina que eres un desarrollador joven que desarrolló una aplicación web. Ejecutas y pruebas tu aplicación localmente y todo funciona muy bien, lo que te hace muy feliz. Crees que esto va a hacer volar la mente de los usuarios de Internet y te traerá mucho dinero.
-
-Entonces te das cuenta de que hay un pequeño problema. Te haces una pregunta: "¿Cómo hago que mi aplicación esté disponible para los usuarios de Internet?"
-
-Está pensando que no puede ejecutar la aplicación localmente todo el tiempo, porque su vieja computadora portátil se volverá lenta para otras tareas y probablemente fallará si muchos usuarios usan su aplicación al mismo tiempo. Además, su ISP cambia aleatoriamente la IP pública de su enrutador, por lo que no sabe en qué dirección IP su aplicación será accesible al público en un momento dado.
-
-Empiezas a darte cuenta de que el problema al que te enfrentas no es tan pequeño como pensabas. De hecho, hay un oficio completamente nuevo para que usted aprenda en el mundo de las TI sobre cómo ejecutar aplicaciones de software y asegurarse de que estén siempre disponibles para los usuarios.
-
-La nave se llama operaciones de TI . Y en casi todos los departamentos de TI, hay un equipo de operaciones (Ops) que administra la plataforma donde se ejecutan las aplicaciones.
-
-El tutorial que está a punto de comenzar le dará a usted, un desarrollador joven, un vistazo de cómo se ven las operaciones y cómo puede hacer este trabajo de manera más eficiente utilizando el enfoque de Infraestructura como código .
-
 Next: [Prerequisitos](01-prerequisitos.md)
