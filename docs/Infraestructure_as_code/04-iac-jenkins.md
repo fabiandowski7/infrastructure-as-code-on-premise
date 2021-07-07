@@ -19,5 +19,13 @@ Entonces, creemos un depósito de Google Cloud Storage (cambie su-project-id en 
 Ahora necesitamos definir un backend remoto en nuestro código Terraform. Llamémoslo ```backend.tf```:
 
 ```
-Output:
+ terraform {
+  backend "consul" {
+    address="<http://IP>:8500"
+    scheme="http"
+    path="onpremise/Nutanix/Infraestructure/VMs_SUSE/output/Bloque_0001_POS/terraform-state"
+    datacenter="dc1"
+    lock="false"
+  }
+}
 ```
