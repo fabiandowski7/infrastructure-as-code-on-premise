@@ -20,18 +20,6 @@ Este proyecto está orientado a todos los DevOps que se integren al equipo de Co
 En este Onboarding se abundarán las principales herramientas de este RoadMap, pero queda en cada uno de ustedes seguir aprendiendo cada día y seguir capacitandose con cada una de las tecnologías mencionadas.
 
 
-## Need your help!
-
-This tutorial was created in 2018 and wasn't being kept up to date. Therefore, some of the instructions may not work due to updated APIs, obsolete repositories, etc. I apologize for that, but I currently don't have time to update this tutorial. So if you find that something is broken and you find a fix, please submit a PR. 
-
-When submitting a PR, make sure you include a description for it, i.e. what's broken and a test plan for the fix.
-
-Also, note that some of things need to be updated in several different repositories at the same time. Main repositories used in this tutorial:
-
-* https://github.com/Artemmkin/infrastructure-as-code-tutorial
-* https://github.com/Artemmkin/infrastructure-as-code-example
-* https://github.com/Artemmkin/raddit
-
 ## Publico Objetivo
 
 El público objetivo de este tutorial es cualquier persona interesada o que trabaje en TI.
