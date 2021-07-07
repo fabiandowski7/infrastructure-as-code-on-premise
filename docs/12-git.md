@@ -1,4 +1,4 @@
-- ### GIT 🔱
+# GIT 🔱
 
 En el proyecto utilizamos GIT como Sistema De Control de Versiones, el cual es un sistema que registra los cambios realizados sobre un archivo o conjunto de archivos a lo largo del tiempo de tal manera que sea posible recuperar versiones especificas más adelante.
 
