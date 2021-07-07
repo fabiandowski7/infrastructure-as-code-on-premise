@@ -24,32 +24,17 @@ En este Onboarding se abundarán las principales herramientas de este RoadMap, p
 
 El público objetivo de este tutorial es cualquier persona interesada o que trabaje en TI.
 
+
 ## Herramientas Utilizadas en el Proyecto 	💻
-
-* Git
-* Consul
-* Jenkins
-* Packer
-* Terraform
-* Ansible
-* Bitbucket
-* Docker
-* Docker Compose
-* Kubernetes
-
-## Laboratorio
 
 Este tutorial asume que tiene acceso a una Plataforma VMware o Nutanix on-premise. Si bien se usan estas plataformas para los requisitos básicos de infraestructura, las lecciones aprendidas en este instructivo se pueden aplicar a otras plataformas.
 
 * [Introduccion](docs/00-introduccion.md)
 * [Prerequisitos](docs/01-prerequisitos.md)
-* [Consul](docs/02-consul.md)
-* [Jenkins](docs/03-jenkins.md)
-* [Packer](docs/04-packer.md)
-* [Terraform](docs/05-terraform.md)
-* [Ansible](docs/06-ansible.md)
-* [Bitbucket](docs/07-bitbucket.md)
-* [Docker](docs/08-docker.md)
-* [Docker Compose](docs/09-docker-compose.md)
-* [Kubernetes](docs/10-kubernetes.md)
-* [Que es Infrastructura como Codigo?](docs/11-que-es-iac.md)
+* [Jenkins](docs/02-jenkins.md)
+* [Terraform](docs/03-terraform.md)
+* [Ansible](docs/04-ansible.md)
+* [Docker](docs/05-docker.md)
+* [Kubernetes](docs/06-kubernetes.md)
+* [Git](docs/07-git.md)
+* [Bash](docs/08-bash.md)
