@@ -31,10 +31,12 @@ The target audience for this tutorial is anyone who loves or/and works in IT.
 
 ## Tools Covered
 
+* Consul
 * Jenkins
 * Packer
 * Terraform
 * Ansible
+* Bitbucket
 * Docker
 * Docker Compose
 * Kubernetes
@@ -49,15 +51,15 @@ NOTE: you can use this [example repository](https://github.com/Artemmkin/infrast
 
 This tutorial assumes you have access to the Google Cloud Platform. While GCP is used for basic infrastructure requirements the lessons learned in this tutorial can be applied to other platforms.
 
-* [Introduction](docs/00-introduction.md)
-* [Prerequisites](docs/01-prerequisites.md)
-* [Manual Operations](docs/02-manual-operations.md)
-* [Scripts](docs/03-scripts.md)
+* [Introduccion](docs/00-introduccion.md)
+* [Prerequisitos](docs/01-prerequisitos.md)
+* [Consul](docs/02-consul.md)
+* [Jenkins](docs/03-jenkins.md)
 * [Packer](docs/04-packer.md)
 * [Terraform](docs/05-terraform.md)
 * [Ansible](docs/06-ansible.md)
-* [Vagrant](docs/07-vagrant.md)
+* [Bitbucket](docs/07-bitbucket.md)
 * [Docker](docs/08-docker.md)
 * [Docker Compose](docs/09-docker-compose.md)
 * [Kubernetes](docs/10-kubernetes.md)
-* [What is Infrastructure as Code?](docs/50-what-is-iac.md)
+* [Que es Infrastructura como Codigo?](docs/11-que-es-iac.md)
