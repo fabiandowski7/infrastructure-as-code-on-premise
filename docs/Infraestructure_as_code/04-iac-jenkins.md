@@ -15,9 +15,9 @@ Necesitamos una forma de compartir nuestro código con Jenkins, por lo que es ho
 
 
 ## Estado remoto
-También necesitamos hacer una transición rápida de regreso a la escuela Terraform para aprender sobre el estado remoto. Anteriormente, cuando ejecutamos Terraform, notará que algunos archivos de estado se escriben en nuestro directorio local. Terraform los usa para hacer su gráfico de cambios cada vez que se ejecuta. Entonces, si ejecutamos Terraform en un contenedor elegante en una tubería, ¿dónde escribe su archivo de estado?
-La respuesta es almacenar el estado en un contenedor en el propio proyecto. Entonces cualquiera puede ejecutar Terraform en la tubería y el estado remoto se almacena y comparte de forma centralizada. Terraform también gestionará el bloqueo del estado para asegurarse de que los trabajos en conflicto no se ejecuten al mismo tiempo.
-Entonces, creemos un depósito de Google Cloud Storage (cambie su-project-id en consecuencia):
+Cuando ejecutamos Terraform, notará que algunos archivos de estado se escriben en nuestro directorio local. Terraform los usa para hacer su gráfico de cambios cada vez que se ejecuta. Entonces, si ejecutamos Terraform en un contenedor en un pipeline, ¿dónde escribe su archivo de estado?
+La respuesta es: Se almacena el estado en un contenedor propio del proyecto. Entonces cualquiera puede ejecutar Terraform en el pipeline y el estado remoto se almacena y comparte de forma centralizada. Terraform también gestionará el bloqueo del estado para asegurarse de que los trabajos en conflicto no se ejecuten al mismo tiempo.
+Entonces, creemos un backend en un contenedro con Consul:
 
 ![image](https://user-images.githubusercontent.com/18565089/124945420-1d29a600-dfdc-11eb-995e-88917b2e1e90.png)
 
