@@ -29,3 +29,25 @@ Ahora necesitamos definir un backend remoto en nuestro código Terraform. Llamé
   }
 }
 ```
+Ejecute terraform init Terraform le ofrecerá amablemente copiar su estado local en su nuevo backend remoto. Responda con sí y luego agregue backend.tf a su repositorio.
+
+## Jenkinsfile
+¡Lo hicimos! Es hora de crear una canalización. En Jenkins, los pipelines están escritos en groovy (una especie de lenguaje de scripting derivado de Java). Se pueden escribir mediante secuencias de comandos , utilizando la mayor parte de la funcionalidad del lenguaje maravilloso, o declarativas , que es mucho más simple. Copie el ```Jenkinsfile``` del repositorio anterior y agréguelo al suyo. Describiré las partes a continuación:
+```    
+pipeline {
+  agent any
+  environment {
+    SVC_ACCOUNT_KEY = credentials('terraform-auth')
+  }
+  stages {
+``` 
+
+Al principio del archivo, declaramos que esto es un ```pipeline``` y no nos importa en qué ```agent``` se ejecute (porque el complemento de Kubernetes lo administrará por nosotros). Podemos definir variables de entorno para nuestros agentes en la ```environment``` sección, y aquí llamamos a la ```credentials``` función groovy para obtener el valor del ```terraform-auth``` secret que establecimos anteriormente. Entonces estamos listos para definir el ```stages``` de nuestro pipeline:
+```    stage('Checkout') {
+      steps {
+        checkout scm
+        sh 'mkdir -p creds'
+        sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ./creds/serviceaccount.json'
+      }
+    } 
+``` 
