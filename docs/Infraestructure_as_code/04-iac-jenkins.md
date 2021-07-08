@@ -90,7 +90,7 @@ De vuelta en la interfaz de usuario de Jenkins, seleccione **Nueva tarea** en la
 
 ![image](https://user-images.githubusercontent.com/18565089/124942780-ee123500-dfd9-11eb-8876-f4e87109ad60.png)
 
-En la página siguiente se le presentan muchas opciones de configuración. Todo lo que tenemos que hacer por ahora es decirle a Jenkins que puede encontrar el Pipeline en un repositorio. Desplácese hacia abajo hasta la sección Pipeline y seleccione Pipeline script from SCM , luego elija Git e ingrese la URL de su repositorio. Luego haga clic en Guardar .
+En la página siguiente se le presentan muchas opciones de configuración. Todo lo que tenemos que hacer por ahora es decirle a Jenkins que puede encontrar el Pipeline en un repositorio. Desplácese hacia abajo hasta la sección Pipeline y seleccione **Pipeline script from SCM** , luego elija **Git** o **Bitbucket Server** e ingrese la URL de su repositorio. Luego haga clic en **Guardar.**
 ![image](https://user-images.githubusercontent.com/18565089/124943501-89a3a580-dfda-11eb-8138-79ad804b3b15.png)
 
 Jenkins agrega Pipeline y lo devuelve a su página de inicio. Ahora para las cosas elegantes. Si cree que la interfaz de usuario de Jenkins parece un poco web 1.0, prepárese para quedar impresionado. Seleccione Open Blue Ocean en el menú de la izquierda.
