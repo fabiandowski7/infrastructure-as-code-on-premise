@@ -85,8 +85,8 @@ En esta siguiente etapa realizamos el Apply de nuestro Terraform Plan, exactamen
 Finalmente en esta etapa se aplica el plan de terraform que se creó anteriormente, nuevamente utilizando la plantilla ```terraform```.
 Una vez que haya creado este archivo y lo haya enviado a su repositorio, estamos listos para agregar la canalización a Jenkins.
 
-## Agregar la canalización
-De vuelta en la interfaz de usuario de Jenkins, seleccione Nuevo elemento en la página de inicio. Especifique que este elemento es una canalización y asígnele un nombre, luego haga clic en Aceptar.
+## Creando el Pipeline
+De vuelta en la interfaz de usuario de Jenkins, seleccione **Nueva tarea** en la página de inicio. Especifique que este elemento es un **pipeline** y asígnele un nombre, luego haga clic en **OK.**
 
 ![image](https://user-images.githubusercontent.com/18565089/124942780-ee123500-dfd9-11eb-8876-f4e87109ad60.png)
 
