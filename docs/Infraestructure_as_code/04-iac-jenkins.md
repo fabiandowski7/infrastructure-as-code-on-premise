@@ -89,6 +89,12 @@ Si está satisfecho con el plan, siga adelante y dé su aprobación. Todo debe v
 
 ![1_ft2w6SyhepELB6EGILENWw](https://user-images.githubusercontent.com/18565089/124944495-5a416880-dfdb-11eb-80d0-6f1bfb9be68f.png)
 
+## ¡Esto es mucho trabajo!
 
+Bueno, puede ser la primera vez. Sin embargo, una vez que adquiere el hábito de hacer las cosas de esta manera, realmente no lleva tiempo configurar estas herramientas y procesos. Vale la pena el esfuerzo porque gana mucho con este enfoque de GitOps / DevOps:
+Todo se hace a través de git, lo que hace que la colaboración en equipo sea más efectiva.
+Las canalizaciones pueden integrar dependencias, pruebas, otras compilaciones, lo que sea necesario para que su implementación funcione como debería.
+Jenkins mantiene un historial de cambios, etapas de compilación, ejecuciones de canalizaciones e implementaciones.
+No hace falta decir que puede construir tuberías para cualquier cosa , no solo para Terraform. De hecho, es mucho más común usarlos para la implementación de aplicaciones que para la gestión del ciclo de vida de la infraestructura. Pero cada vez que tenga que obtener algo de código de A a B, una canalización es probablemente la forma de hacerlo.
 
 
