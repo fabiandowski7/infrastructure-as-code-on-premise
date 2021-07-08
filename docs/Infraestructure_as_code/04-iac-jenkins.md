@@ -26,7 +26,7 @@ Ahora necesitamos definir un backend remoto en nuestro código Terraform. Llamé
   backend "consul" {
     address="<http://IP>:8500"
     scheme="http"
-    path="onpremise/Nutanix/Infraestructure/VMs_SUSE/output/Bloque_0001_POS/terraform-state"
+    path="onpremise/Nutanix/Infraestructure/VMs_SUSE/output/Bloque_0003_SERVER/terraform-state"
     datacenter="dc1"
     lock="false"
   }
