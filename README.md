@@ -1,6 +1,3 @@
-# Onboarding-DevOps 💥
-Repositorio creado para el entrenamiento y Onboarding de nuevos DevOps que se integren al equipo 😎 
-
 ## Resumen 📃
 Este proyecto está orientado a todos los DevOps que se integren al equipo de Concrete, con la finalidad de adaptarse a las tecnologías utilizadas en el proyecto, así como también herramientas esenciales para cualquier DevOps.
 
