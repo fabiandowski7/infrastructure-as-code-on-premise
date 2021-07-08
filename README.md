@@ -5,7 +5,7 @@ Este proyecto está orientado a todos los DevOps que se integren al equipo de Co
 
 - Tener conocimientos previos en algunas de las herramientas utilizadas en este Onboarding. 
 - Familiarizarse con la Infraestructura del proyecto 
-- Editor de código fuente donde almacenar las carpetas y el código, utilizaremos Visual Studio Code versión 1.36.31 (Recomendación) :nerd_face:
+- Editor de código fuente donde almacenar las carpetas y el código, utilizaremos Visual Studio Code versión 1.57.1 (Recomendación) :nerd_face:
 
 ## Primeros pasos :walking:
 
