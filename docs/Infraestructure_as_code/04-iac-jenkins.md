@@ -9,7 +9,7 @@ Recuerde que al comienzo de esta serie defendimos el beneficio de definir la inf
 
 
 ## Git
-Necesitamos una forma de compartir nuestro código con Jenkins, por lo que es hora de enviar su directorio de trabajo a un repositorio de git alojado. Puede ser Github, BitBucket, Gitlab o cualquier otro servicio de git alojado, siempre que Jenkins pueda verlo a través de Internet. He usado Bitbucket Server:
+Necesitamos una forma de compartir nuestro código con Jenkins, por lo que es hora de enviar su directorio de trabajo a un repositorio de git alojado. Puede ser Github, BitBucket, Gitlab o cualquier otro servicio de git alojado, siempre que Jenkins pueda verlo a través de Internet o en forma privada. He usado Bitbucket Server:
 
 ![image](https://user-images.githubusercontent.com/18565089/124945770-7560a800-dfdc-11eb-9281-86afcf1642ef.png)
 
