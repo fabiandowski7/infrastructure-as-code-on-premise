@@ -129,6 +129,7 @@ No hace falta decir que puede construir Pipelines para cualquier cosa, no solo p
 
 En un entorno del mundo real, deberias activar los pipelines desde un **git commit.** Esto se puede hacer con un enlace posterior a la confirmación que llama a la API de Jenkins.
 
-## Caso Practico
+Mediante la configuración de un Pipeline se aprovisionará Infraestructura en los hipervisores **Nutanix** y **VMware**
 
-Mediante la configuración de un Pipeline se aprovisionarán Maquinas Virtuales en los hipervisores **Nutanix** y **VMware**
+* [Infraestructura cómo código en VMware](docs/07-iac-deploy-to-vmware.md)
+* [Infraestrcutura como código en Nutanix](docs/08-iac-deploy-to-nutanix.md)
