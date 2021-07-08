@@ -78,5 +78,17 @@ Jenkins agrega Pipeline y lo devuelve a su página de inicio. Ahora para las cos
 
 ![1_5MsK2MMyntBUUOvS3hNwXQ](https://user-images.githubusercontent.com/18565089/124943624-a8a23780-dfda-11eb-8530-ca8cc1bae534.png)
 
+¡Es como un mundo completamente nuevo! Y se pone mejor. Haga clic en Ejecutar . Se le notificará que ha comenzado un trabajo y puede hacer clic en él para ver el progreso. Es posible que la primera vez que haga esto le lleve unos minutos. Jenkins le pide a GKE que inicie un contenedor de agentes y deberá obtener las imágenes necesarias de Docker Hub en la primera ejecución.
+Obtiene una buena representación visual de la canalización de esta interfaz de usuario. Cuando lleguemos a la etapa de aprobación, Jenkins esperará sus comentarios. En este punto, puede volver a hacer clic en la etapa TF Plan y asegurarse de que está satisfecho con el plan que se va a aplicar. Dado que creamos nuestro backend de estado remoto, Terraform debe saber que no hay cambios que hacer, a menos que haya alterado su código de Terraform.
+
+![1_vVAN4tq9K5ZoDvehWloHLw](https://user-images.githubusercontent.com/18565089/124944238-25cdac80-dfdb-11eb-8fc4-047234b07daf.png)
+
+![1_6I_R-weIkc6MxB1WyEyHIg](https://user-images.githubusercontent.com/18565089/124944367-40078a80-dfdb-11eb-9059-0ac50eb9ef42.png)
+
+Si está satisfecho con el plan, siga adelante y dé su aprobación. Todo debe volverse verde y darte una sensación cálida y difusa por dentro.
+
+![1_ft2w6SyhepELB6EGILENWw](https://user-images.githubusercontent.com/18565089/124944495-5a416880-dfdb-11eb-80d0-6f1bfb9be68f.png)
+
+
 
 
