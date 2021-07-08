@@ -11,6 +11,9 @@ Recuerde que al comienzo de esta serie defendimos el beneficio de definir la inf
 ## Terraform 
 Es una herramienta para construir, cambiar y administrar infraestructura de forma segura y repetible. Los operadores y los equipos de infraestructura pueden usar Terraform para administrar entornos con un lenguaje de configuración llamado HashiCorp Configuration Language (HCL) para implementaciones automatizadas.
 
+![terraform_process-2](https://user-images.githubusercontent.com/18565089/124979421-077aa780-e001-11eb-8d7c-535889e67579.png)
+
+
 ## Git
 Necesitamos una forma de compartir nuestro código con Jenkins, por lo que es hora de enviar su directorio de trabajo a un repositorio de git alojado. Puede ser Github, BitBucket, Gitlab o cualquier otro servicio de git alojado, siempre que Jenkins pueda verlo a través de Internet o en forma privada. He usado Bitbucket Server:
 
