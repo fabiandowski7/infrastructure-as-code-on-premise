@@ -49,13 +49,14 @@ pipeline {
 ``` 
 
 Al principio del archivo, declaramos que esto es un ```pipeline``` y no nos importa en qué ```agent``` se ejecute (porque el complemento de Kubernetes lo administrará por nosotros). Podemos definir variables de entorno para nuestros agentes en la ```environment``` sección, y aquí llamamos a la ```credentials``` función groovy para obtener el valor del ```terraform-auth``` secret que establecimos anteriormente. Entonces estamos listos para definir el ```stages``` de nuestro pipeline:
-```    stage('Checkout') {
+```  
+    stage('Checkout') {
       steps {
         checkout scm
         sh 'mkdir -p creds'
         sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ./creds/serviceaccount.json'
       }
-    } 
+    }
 ``` 
 En esta etapa, los agentes de Jenkins verifican nuestro repositorio de git en su espacio de trabajo. Luego crea el ```creds``` directorio y base64 decodifica el secreto que establecimos como variable de entorno. El espacio de trabajo ahora tiene un ```creds``` directorio y un ```serviceaccount.json``` archivo al igual que nuestro directorio local.
 ```
