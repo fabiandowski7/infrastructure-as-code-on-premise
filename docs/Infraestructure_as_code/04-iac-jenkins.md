@@ -68,3 +68,5 @@ Una vez que haya creado este archivo y lo haya enviado a su repositorio, estamos
 
 ## Agregar la canalización
 De vuelta en la interfaz de usuario de Jenkins, seleccione Nuevo elemento en la página de inicio. Especifique que este elemento es una canalización y asígnele un nombre, luego haga clic en Aceptar.
+
+![image](https://user-images.githubusercontent.com/18565089/124942780-ee123500-dfd9-11eb-8876-f4e87109ad60.png)
