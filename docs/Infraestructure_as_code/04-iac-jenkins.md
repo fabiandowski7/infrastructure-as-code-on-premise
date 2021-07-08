@@ -132,4 +132,4 @@ En un entorno del mundo real, deberias activar los pipelines desde un **git comm
 Mediante la configuración de un Pipeline se aprovisionará Infraestructura en los hipervisores **Nutanix** y **VMware**
 
 * [Infraestructura cómo código en VMware](docs/Infraestructure_as_code/07-iac-deploy-to-vmware.md)
-* [Infraestrcutura como código en Nutanix](docs/Infraestructure_as_code/08-iac-deploy-to-nutanix.md)
+* [Infraestrcutura como código en Nutanix](docs/Infraestructure_as_code/08-iac-deploy-to-nutanix.md) 
