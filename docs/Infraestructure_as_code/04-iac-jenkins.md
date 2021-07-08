@@ -1,4 +1,4 @@
-# Terraform Pipelines en Jenkins
+# Terraform con Jenkins Pipelines
 
 ![1_62WJpBzEdlsjlc2TtjFf3g](https://user-images.githubusercontent.com/18565089/124832596-dfc90800-df4a-11eb-8e0f-6dbe321a2648.jpeg)
 
@@ -7,6 +7,9 @@
 Por lo general, vemos canalizaciones a las que se hace referencia como parte de la integración continua, que en su forma más básica es simplemente la práctica de fusionar frecuentemente los cambios del desarrollador en una línea principal de código. Una canalización a menudo se desencadena por un cambio de código (como un enlace posterior a la confirmación en git) y puede ayudar a fusionar ese cambio al proporcionar etapas de prueba, aprobación e implementación.
 Recuerde que al comienzo de esta serie defendimos el beneficio de definir la infraestructura como código. Ahora que estamos todos al día, configuremos una canalización en Jenkins para implementar cambios en ese código.
 
+
+## Terraform 
+Es una herramienta para construir, cambiar y administrar infraestructura de forma segura y repetible. Los operadores y los equipos de infraestructura pueden usar Terraform para administrar entornos con un lenguaje de configuración llamado HashiCorp Configuration Language (HCL) para implementaciones automatizadas.
 
 ## Git
 Necesitamos una forma de compartir nuestro código con Jenkins, por lo que es hora de enviar su directorio de trabajo a un repositorio de git alojado. Puede ser Github, BitBucket, Gitlab o cualquier otro servicio de git alojado, siempre que Jenkins pueda verlo a través de Internet o en forma privada. He usado Bitbucket Server:
