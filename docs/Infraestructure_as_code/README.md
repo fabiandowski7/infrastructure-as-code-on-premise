@@ -1,35 +1,25 @@
-## Resumen 📃
-Este proyecto está orientado a todos los DevOps que se integren al equipo de Concrete, con la finalidad de adaptarse a las tecnologías utilizadas en el proyecto, así como también herramientas esenciales para cualquier DevOps.
+## ¿Qué es la Infraestructura como código (IaC)? 📃
 
-## Prerrequisitos :exclamation:
+Infraestructura como código es un método de aprovisionamiento y gestión de infraestructura IT y servicios a través del uso de código fuente, sustituyendo el procedimiento estándar de operación. Básicamente consiste en tratar los servidores, bases de datos, redes y otros elementos de infraestructura como si fuera software. Este código facilita el despliegue de esta infraestructura de un modo rápido, seguro y consistente.
 
-- Tener conocimientos previos en algunas de las herramientas utilizadas en este Onboarding. 
-- Familiarizarse con la Infraestructura del proyecto 
-- Editor de código fuente donde almacenar las carpetas y el código, utilizaremos Visual Studio Code versión 1.57.1 (Recomendación) :nerd_face:
+## Beneficios de IaC
 
-## Primeros pasos :walking:
+### Rapidez ✔️
+El diseño de una infraestructura con código permite agilizar de manera significativa el despliegue posterior de manera rápida y segura. IaC permite desplegar toda una infraestructura que podría llevar horas o días enteros ejecutando tan sólo un script en cuestión de unos pocos minutos.
 
-- Familiarizarse con la Infraestructura del proyecto Infraestructura y todos sus componentes.
-- Conocer los componentes que integran el proyecto y las herramientas utilizadas para la realización de las actividades diarias. 
-- Leer este [Artículo](https://medium.com/@devfire/how-to-become-a-devops-engineer-in-six-months-or-less-366097df7737) aquellos DevOps que están iniciando en la posición, para que se tenga claro hacia que apunta esta cultura, y como integrar las distintas herramientas.
-- En este [Road-Map](https://roadmap.sh/devops) encontrarán las principales herramientas y tecnologías que un **DevOps** debería dominar, o al menos tener un conocimiento teórico de las mismas. 
+Si bien es cierto que el desarrollo del código que permitirá el despliegue de la infraestructura puede ser igual de costoso que un despliegue inicial, aporta la ventaja de que es reutilizable por lo que se pueden importar snippets que automaticen partes y cuando la biblioteca de recursos estándar ya está poblada se reduce mucho el tiempo de desarrollo, esto sin contar que además en caso de tener que levantar varios entornos de la misma arquitectura es donde se demuestra realmente la rapidez de IaC ya que una vez desarrollado permite replicarlo en cuestión de minutos.
 
-En este Onboarding se abundarán las principales herramientas de este RoadMap, pero queda en cada uno de ustedes seguir aprendiendo cada día y seguir capacitandose con cada una de las tecnologías mencionadas.
+### Automatización ✔️
+La automatización en la replicación de infraestructura es otro punto interesante de la IaC. Es posible tomar el diseño de una infraestructura con código para que sea replicada exactamente igual en otro entorno únicamente modificando los parámetros que se proporcionan durante la creación.
 
+Además las herramientas de IaC normalmente ofrecen APIs que permiten automatizar la ejecución del IaC integrándola con herramientas de “Continuos Delivery” (Jenkins, Drone) para integrar dentro de los ciclos de pruebas la creación de un entorno sobre el que ejecutar las pruebas y destruirlo a la finalización.
 
-## Publico Objetivo
+Adicionalmente nos ofrece la posibilidad de automatizar la creación de entornos de Disaster Recovery, si los tiempos de RTO y RPO nos lo permiten podemos tener simplemente en una localización alternativa las copias de seguridad de los datos y recrear la infraestructura solo en caso de desastre, con lo que se reduce al mínimo el coste de un entorno DR.
 
-El público objetivo de este tutorial es cualquier persona interesada o que trabaje en TI.
+### Minimización de riesgos ✔️
+Otra de las ventajas que ofrece IaC es la minimización de riesgos. Cuando se despliega infraestructura manualmente es inevitable que en algún momento se cometa un error. IaC permite hacer las comprobaciones necesarias antes de desplegar para que exista una consistencia, minimizando al máximo los errores anteriormente comentados. Aunque un despliegue de un servidor, por poner un ejemplo, es barato, el tiempo del ingeniero que lo despliega no lo es tanto. De modo que si se comete un error de base, como la creación de una red con datos incorrectos, y posteriormente hay que crear una cantidad concreta de servidores sobre esta red, será necesario dar marcha atrás a todo el proceso.
 
+### Actualizaciones controladas y rollbacks ✔️
+Los sistemas de IaC permiten la actualización de los stacks proporcionando un fichero actualizado y pidiendo que en lugar de crear un  nuevo stack procede a actualizar uno existente, el sistema se encarga de comprar el fichero con los recursos actualmente desplegados y se encarga de hacer únicamente los cambios necesarios.
 
-## Herramientas Utilizadas en el Proyecto 	💻
-
-Este tutorial asume que tiene acceso a una Plataforma VMware o Nutanix on-premise. Si bien se usan estas plataformas para los requisitos básicos de infraestructura, las lecciones aprendidas en este instructivo se pueden aplicar a otras plataformas.
-
-* [Jenkins](docs/02-jenkins.md)
-* [Terraform](docs/03-terraform.md)
-* [Ansible](docs/04-ansible.md)
-* [Docker](docs/05-docker.md)
-* [Kubernetes](docs/06-kubernetes.md)
-* [Git](docs/07-git.md)
-* [Bash](docs/08-bash.md)
+Si los ficheros descriptivos los tenemos en un sistema de control de versiones además podremos hacer rollback fácilmente a versiones anteriores y comparar los cambios entre una versión y otro.
