@@ -116,13 +116,19 @@ Si está satisfecho con el plan, siga adelante y dé su aprobación. Todo debe v
 ![1_ft2w6SyhepELB6EGILENWw](https://user-images.githubusercontent.com/18565089/124944495-5a416880-dfdb-11eb-80d0-6f1bfb9be68f.png)
 
 
-## ¡En conclusion!
+## ¡Es un excelente enfoque!
 
-Bueno, puede ser la primera vez. Sin embargo, una vez que adquiere el hábito de hacer las cosas de esta manera, realmente no lleva tiempo configurar estas herramientas y procesos. Vale la pena el esfuerzo porque gana mucho con este enfoque de GitOps / DevOps:
+Bueno, puede ser la primera vez creando Pipelines. Sin embargo, una vez que adquiere el hábito de hacer las cosas de esta manera, realmente no lleva tiempo configurar estas herramientas y procesos. Vale la pena el esfuerzo porque gana mucho con este enfoque de GitOps / DevOps:
 - Todo se hace a través de git, lo que hace que la colaboración en equipo sea más efectiva.
 - Los Pipelines pueden integrar dependencias, pruebas, otras compilaciones, lo que sea necesario para que su implementación funcione como debería.
 - Jenkins mantiene un historial de cambios, etapas de compilación, ejecuciones de canalizaciones e implementaciones.
-- 
+
 No hace falta decir que puede construir Pipelines para cualquier cosa, no solo para Terraform. De hecho, es mucho más común usarlos para la implementación de aplicaciones que para la gestión del ciclo de vida de la infraestructura. Pero cada vez que tenga que obtener algo de código de A a B, una canalización es probablemente la forma de hacerlo.
 
+## ¿Que sigue?
 
+En un entorno del mundo real, deberias activar los pipelines desde un **git commit.** Esto se puede hacer con un enlace posterior a la confirmación que llama a la API de Jenkins.
+
+## Caso Practico
+
+Mediante la configuración de un Pipeline se aprovisionarán Maquinas Virtuales en los hipervisores **Nutanix** y **VMware**
