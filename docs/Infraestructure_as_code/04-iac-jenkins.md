@@ -69,7 +69,20 @@ En esta etapa, los agentes de Jenkins verifican nuestro repositorio de git en su
        }
      }
 ``` 
-Finalmente en esta etapa se aplica el plano de terraform que se creó anteriormente, nuevamente utilizando la ```terraform``` plantilla de contenedor.
+
+En esta siguiente etapa realizamos el Apply de nuestro Terraform Plan, exactamente de la misma manera que lo hemos hecho anteriormente en nuestro entorno local. Estamos especificando la plantilla del terraform plan que agregamos anteriormente, por lo que en esta etapa preguntará sí ejecutar el plan de la infraestrcuctura y escribirá en el mismo espacio de trabajo.
+
+```
+   stage name: 'TF Apply', concurrency: 1
+        def deploy_validation = input(
+            id: 'Deploy',
+            message: 'Let\'s continue the deploy plan',
+            type: "boolean")
+
+        sh "terraform apply plan"
+```
+
+Finalmente en esta etapa se aplica el plan de terraform que se creó anteriormente, nuevamente utilizando la plantilla ```terraform```.
 Una vez que haya creado este archivo y lo haya enviado a su repositorio, estamos listos para agregar la canalización a Jenkins.
 
 ## Agregar la canalización
