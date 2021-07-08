@@ -3,7 +3,8 @@
 Implementar y administrar recursos a través de Terraform tiene muchos beneficios. Es fácil, puede controlar la versión de sus diferentes configuraciones y puede asegurarse de que el estado de las máquinas virtuales sea coherente con su declaración. En la mayoría de los casos de uso, definirá sus recursos a través del código Terraform e implementará esas cargas de trabajo usando Terraform. En algunos casos, es posible que desee administrar cargas de trabajo existentes (¿ya aprovisionadas manualmente?) Que se ejecutan sobre Nutanix con Terraform. Dado que Terraform solo administrará los recursos que forman parte de su archivo de estado, no administrará las cargas de trabajo existentes o ya implementadas. Afortunadamente, existe una forma de incluir cargas de trabajo existentes en su archivo de estado.
 
 Le mostraremos los pasos para importar una máquina virtual existente en su archivo de estado y administrarla a través de Terraform. El código se puede encontrar en este repositorio::
-https://github.com/yannickstruyf3/terraform-nutanix-import-example
+![image](https://user-images.githubusercontent.com/18565089/124980249-23327d80-e002-11eb-993a-09de2ed17b10.png)
+
 
 ## Identifique sus cargas de trabajo existentes
 Primero debe identificar qué carga de trabajo / vm desea administrar a través de Terraform. Para este ejemplo, usaré Prism Element (PE) para encontrar mi máquina virtual. Busque la máquina virtual y anote la ID. Esto se utilizará más tarde.
