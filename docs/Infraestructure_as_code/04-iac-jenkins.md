@@ -60,15 +60,14 @@ Al principio del archivo, declaramos que esto es un ```pipeline``` y no nos impo
 ``` 
 En esta etapa, los agentes de Jenkins verifican nuestro repositorio de git en su espacio de trabajo. Luego crea el ```creds``` directorio y base64 decodifica el secreto que establecimos como variable de entorno. El espacio de trabajo ahora tiene un ```creds``` directorio y un ```serviceaccount.json``` archivo al igual que nuestro directorio local.
 ```
-    stage('TF Apply') {
-      steps {
-        container('terraform') {
-          sh terraform apply -input=false myplan'
-        }
-      }
-    }
-  }
-}
+    stage('TF Plan') {
+       steps {
+         container('terraform') {
+           sh 'terraform init'
+           sh 'terraform plan -out myplan'
+         }
+       }
+     }
 ``` 
 Finalmente en esta etapa se aplica el plano de terraform que se creó anteriormente, nuevamente utilizando la ```terraform``` plantilla de contenedor.
 Una vez que haya creado este archivo y lo haya enviado a su repositorio, estamos listos para agregar la canalización a Jenkins.
