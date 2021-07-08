@@ -1,206 +1,127 @@
-# Administre máquinas virtuales Nutanix AHV existentes usando Terraform
-
-Implementar y administrar recursos a través de Terraform tiene muchos beneficios. Es fácil, puede controlar la versión de sus diferentes configuraciones y puede asegurarse de que el estado de las máquinas virtuales sea coherente con su declaración. En la mayoría de los casos de uso, definirá sus recursos a través del código Terraform e implementará esas cargas de trabajo usando Terraform. En algunos casos, es posible que desee administrar cargas de trabajo existentes (¿ya aprovisionadas manualmente?) Que se ejecutan sobre Nutanix con Terraform. Dado que Terraform solo administrará los recursos que forman parte de su archivo de estado, no administrará las cargas de trabajo existentes o ya implementadas. Afortunadamente, existe una forma de incluir cargas de trabajo existentes en su archivo de estado.
-
-Le mostraremos los pasos para importar una máquina virtual existente en su archivo de estado y administrarla a través de Terraform. El código se puede encontrar en este repositorio::
-![image](https://user-images.githubusercontent.com/18565089/124980249-23327d80-e002-11eb-993a-09de2ed17b10.png)
+![124823286-02552400-df3f-11eb-8ad1-4e6b0efc9a01](https://user-images.githubusercontent.com/18565089/124981387-81ac2b80-e003-11eb-8342-0f134373164a.png)
 
 
-## Identifique sus cargas de trabajo existentes
-Primero debe identificar qué carga de trabajo / vm desea administrar a través de Terraform. Para este ejemplo, usaré Prism Element (PE) para encontrar mi máquina virtual. Busque la máquina virtual y anote la ID. Esto se utilizará más tarde.
-![alt_text](https://github.com/yannickstruyf3/terraform-nutanix-import-example/raw/master/images/1_identify_vm.png )
-También analice el diseño actual de la máquina virtual:
-- ¿En qué Clúster de Nutanix se está ejecutando?
-- ¿Cuántas CPU virtuales / sockets?
-- ¿Cuanta memoria?
-- ¿Cantidad de discos? ¿Imagen utilizada?
-- ¿Cantidad de nics?
+# Deploy una o multiples VM(s) en Nutanix con Terraform 🚀
 
-Basándonos en esta información, modelaremos nuestra máquina virtual utilizando recursos de Terraform.
 
-## Modelar la máquina virtual
-El siguiente paso es modelar la máquina virtual en código. El repositorio de código contiene código Terraform de ejemplo. Contiene los siguientes archivos:
-- `provider.tf`: Inicializa el proveedor y configura la versión de proveedor requerida
-- `datasources.tf`: Realice búsquedas de entidades vinculadas requeridas (imagen, clúster, subred)
-- `variables.tf`:  Declaraciones de variables (opcionales y obligatorias)
-- `main.tf`: Definición de máquina virtual
+## Terraform
 
-El código más importante para la importación se encuentra en el `main.tf` archivo. Aquí definiremos las propiedades de la máquina virtual que queremos gestionar.  
-**Nota:**Mantenga esta definición lo más cercana posible a la máquina virtual original; de lo contrario, Terraform actualizará la máquina virtual cuando realice una nueva `terraform apply`
+[HashiCorp Terraform](https://www.terraform.io/) allows infrastructure to be expressed as code in a simple, human-readable language called HCL (HashiCorp Configuration Language). Terraform uses this language to provide an execution plan of changes, which can be reviewed for safety and then applied to make changes.
 
-## Importando la máquina virtual
-Primero debemos asegurarnos de que terraform se haya inicializado:
-terraform init
-```
-Output:
-```
-Initializing the backend...
+Almost any infrastructure type can be represented as a **resource** in Terraform. While resources are the primary construct in the Terraform language, the _behaviors_ of resources rely on their associated resource types, and these types are defined by _providers_.
 
-Initializing provider plugins...
-- Checking for available provider plugins...
-- Downloading plugin for provider "nutanix" (terraform-providers/nutanix) 1.1.0...
+[Providers](https://www.terraform.io/docs/providers/index.html) are responsible for understanding API interactions and exposing resources to the outside world. Extensible providers allow Terraform to manage a broad range of resources, including hardware, iaas, paas, and saas services.
 
-Terraform has been successfully initialized!
+In the example below, the `vsphere_virtual_machine` resource from the [VMware vSphere provider](https://www.terraform.io/docs/providers/vsphere/index.html) is leveraged to clone and configure multiple vSphere virtual machines.
 
-You may now begin working with Terraform. Try running "terraform plan" to see
-any changes that are required for your infrastructure. All Terraform commands
-should now work.
+## Requirements
 
-If you ever set or change modules or backend configuration for Terraform,
-rerun this command to reinitialize your working directory. If you forget, other
-commands will detect it and remind you to do so if necessary.
-```
+* [Terraform](https://www.terraform.io/downloads.html) 0.12+
 
-A continuación, importaremos la máquina virtual. Para hacer esto usaremos el `terraform import` comando. Para importar un recurso, debemos informar a Terraform qué recurso importaremos seguido del ID de ese recurso. En este caso queremos importar el `nutanix_virtual_machine.myImportedVM` recurso que está identificado por el UUID de la máquina virtual que encontramos en Prism Element. Ejecute el comando:
-```
-terraform import nutanix_virtual_machine.myImportedVM fcb451ed-509e-480d-80b3-2d09eef6e1a0
-```
-Output:
-```
-nutanix_virtual_machine.myImportedVM: Importing from ID "fcb451ed-509e-480d-80b3-2d09eef6e1a0"...
-nutanix_virtual_machine.myImportedVM: Import prepared!
-  Prepared nutanix_virtual_machine for import
-nutanix_virtual_machine.myImportedVM: Refreshing state... [id=fcb451ed-509e-480d-80b3-2d09eef6e1a0]
+## Configuration
 
-Import successful!
+The set of files used to describe infrastructure in Terraform is simply known as a Terraform _configuration_.:
 
-The resources that were imported are shown above. These resources are now in
-your Terraform state and will henceforth be managed by Terraform.
+    ├── main.tf
+    ├── output.tf
+    ├── terraform.tfvars
+    └── variables.tf
 
-```
-You will notice that a new `terraform.tf` state file has been created. Terraform now has enough information to manage the resource.
-Run a `terraform plan` to verify if the import was successful.
-```
-terraform plan
-```
-Output:
-```
-Refreshing Terraform state in-memory prior to plan...
-The refreshed state will be used to calculate this plan, but will not be
-persisted to local or remote state storage.
 
-data.nutanix_subnet.mySubnet: Refreshing state...
-data.nutanix_image.myImage: Refreshing state...
-data.nutanix_cluster.myCluster: Refreshing state...
-nutanix_virtual_machine.vm: Refreshing state... [id=58981fb6-ec5b-4ac4-8944-8822342c34ee]
-nutanix_virtual_machine.myImportedVM: Refreshing state... [id=fcb451ed-509e-480d-80b3-2d09eef6e1a0]
-###
-# Removed output
-###
-        api_version                                      = "3.1"
-        id                                               = "fcb451ed-509e-480d-80b3-2d09eef6e1a0"
-      ~ memory_size_mib                                  = 1024 -> 2048
+1. The `main.tf` file contains my provider definition as well as the **logic**: while _data sources_ allow data to be fetched or computed for use elsewhere in the configuration (e.g., vSphere cluster, datastore, portgroup, and so on), the _resource_ blocks describe the virtual machines to create. 
+2. The `variables.tf` file contains the variables definition within your Terraform configuration (but not the values of those variables which are defined in  `terraform.tfvars`).
+3. For all files which match `terraform.tfvars` or `*.auto.tfvars` present in the current directory, Terraform automatically loads them to populate variables. **This file has to be updated to match your infrastructure settings**.
+4. (optional) The `output.tf` file provides useful information for troubleshooting purposes.
 
-        name                                             = "yst-manual-deployment"
-        num_sockets                                      = 1
-        num_vcpus_per_socket                             = 2
-###
-# Removed output
-###
+> **Note:** Although .tfvars files are *usually* not distributed for security reasons, I included mine here for demonstration purposes.
 
-Plan: 0 to add, 1 to change, 0 to destroy.
+## Resources
 
-------------------------------------------------------------------------
+Two `vsphere_virtual_machine` resource blocks are defined:
 
-Note: You didn't specify an "-out" parameter to save this plan, so Terraform
-can't guarantee that exactly these actions will be performed if
-"terraform apply" is subsequently run.
-```
+ - `kubernetes_master` clones a Linux vSphere template into a new virtual machine and customize the guest.
+ - `kubernetes_workers` clones a Linux vSphere template into multiple new virtual machines and customize the guests; `count.index` was used to loop over resources, but other mechanisms can be used as a replacement (such as `for_each` or `for` loops).
 
-In my case above I did not model my resource identical to the running virtual machine. Terraform will detect this and will update the virtual machine so it is compliant to the desired state. When I now run `terraform apply` it will increase the amount of memory from 1GB to 2GB. 
+## Execution
 
-```
-terraform apply
-```
-Output:
-```
-data.nutanix_image.myImage: Refreshing state...
-data.nutanix_subnet.mySubnet: Refreshing state...
-data.nutanix_cluster.myCluster: Refreshing state...
-nutanix_virtual_machine.vm: Refreshing state... [id=58981fb6-ec5b-4ac4-8944-8822342c34ee]
-nutanix_virtual_machine.myImportedVM: Refreshing state... [id=fcb451ed-509e-480d-80b3-2d09eef6e1a0]
-###
-# Removed output
-###
-nutanix_virtual_machine.myImportedVM: Modifying... [id=fcb451ed-509e-480d-80b3-2d09eef6e1a0]
-nutanix_virtual_machine.myImportedVM: Still modifying... [id=fcb451ed-509e-480d-80b3-2d09eef6e1a0, 10s elapsed]
-nutanix_virtual_machine.myImportedVM: Still modifying... [id=fcb451ed-509e-480d-80b3-2d09eef6e1a0, 20s elapsed]
-nutanix_virtual_machine.myImportedVM: Still modifying... [id=fcb451ed-509e-480d-80b3-2d09eef6e1a0, 30s elapsed]
-nutanix_virtual_machine.myImportedVM: Still modifying... [id=fcb451ed-509e-480d-80b3-2d09eef6e1a0, 40s elapsed]
-nutanix_virtual_machine.myImportedVM: Modifications complete after 47s [id=fcb451ed-509e-480d-80b3-2d09eef6e1a0]
+### Init
 
-Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
-```
+The first command to run for a new configuration is  `terraform init`, which initializes various local settings and data that will be used by subsequent commands. This command will also automatically download and install any provider defined in the configuration.
 
-## Modifying a resource
-Modifying the virtual machine (or deleting) can now be performed via Terraform. You can add a disk (40 GB) by modifying the `myImportedVM` resource definition:
+    \❯ terraform init
+    
+    Initializing the backend...
+    Initializing provider plugins...
+    
+    The following providers do not have any version constraints in configuration,
+    so the latest version was installed.
+    
+    To prevent automatic upgrades to new major versions that may contain breaking
+    changes, it is recommended to add version = "..." constraints to the
+    corresponding provider blocks in configuration, with the constraint strings
+    suggested below.
+    
+    * provider.vsphere: version = "~> 1.14"
+    
+    Terraform has been successfully initialized!
+    
+    You may now begin working with Terraform. Try running "terraform plan" to see
+    any changes that are required for your infrastructure. All Terraform commands
+    should now work.
+    
+    If you ever set or change modules or backend configuration for Terraform,
+    rerun this command to reinitialize your working directory. If you forget, other
+    commands will detect it and remind you to do so if necessary.
 
-```
-##main.tf##
-## VM resource definition
-resource "nutanix_virtual_machine" "myImportedVM" {
-  name                 =  "yst-manual-deployment"
-###
-# Code
-###
-  disk_list {
-    disk_size_bytes = 40 * 1024 * 1024 * 1024
-  }
-###
-# Code
-###
-}
-```
+### Plan
 
-```
-terraform apply
-```
-Output:
-```
-data.nutanix_image.myImage: Refreshing state...
-data.nutanix_subnet.mySubnet: Refreshing state...
-data.nutanix_cluster.myCluster: Refreshing state...
-nutanix_virtual_machine.myImportedVM: Refreshing state... [id=fcb451ed-509e-480d-80b3-2d09eef6e1a0]
+The  `terraform plan`  command is used to create an execution plan. Terraform performs a refresh, unless explicitly disabled, and then determines what actions are necessary to achieve the desired state specified in the configuration files.
 
-An execution plan has been generated and is shown below.
-Resource actions are indicated with the following symbols:
-  ~ update in-place
+This command is a convenient way to check whether the execution plan for a set of changes matches your expectations without making any changes to real resources or to the state.
 
-Terraform will perform the following actions:
-###
-# Removed output
-###
-      + disk_list {
-          + data_source_reference  = (known after apply)
-          + disk_size_bytes        = 42949672960
-          + volume_group_reference = (known after apply)
+### Apply
 
-          + device_properties {
-              + device_type  = (known after apply)
-              + disk_address = (known after apply)
-            }
+The `terraform apply` command is used to **apply the changes required to reach the desired state of the configuration**.
 
-          + storage_config {
-              + flash_mode = (known after apply)
+    \❯ terraform apply
+    data.vsphere_datacenter.target_dc: Refreshing state...
+    data.vsphere_network.target_network: Refreshing state...
+    data.vsphere_compute_cluster.target_cluster: Refreshing state...
+    data.vsphere_virtual_machine.source_template: Refreshing state...
+    data.vsphere_datastore.target_datastore: Refreshing state...
+    vsphere_virtual_machine.kubernetes_workers[2]: Refreshing state... [id=422fd79c-755b-a2d4-bb09-c9d6476217f5]
+    vsphere_virtual_machine.kubernetes_master: Refreshing state... [id=422faaf3-2f12-b3ee-f0ed-8d602bfa4b11]
+    vsphere_virtual_machine.kubernetes_workers[1]: Refreshing state... [id=422ff5fb-7c96-1494-a865-6969a6fdd52f]
+    vsphere_virtual_machine.kubernetes_workers[0]: Refreshing state... [id=422f4d66-fc03-14ed-767b-62ade0142d19]
+    
+    An execution plan has been generated and is shown below.
+    Resource actions are indicated with the following symbols:
+      + create
+      ~ update in-place
+    
+    Terraform will perform the following actions:
+    
+      # vsphere_virtual_machine.kubernetes_master will be updated in-place
+      ~ resource "vsphere_virtual_machine" "kubernetes_master" {
+          - annotation                              = "Ubuntu 18.04.3 LTS (Bionic Beaver) - 2020-01-10" -> null
+    
+    [...]
+    
+    Plan: 1 to add, 3 to change, 0 to destroy.
+    
+    Do you want to perform these actions?
+      Terraform will perform the actions described above.
+      Only 'yes' will be accepted to approve.
+    
+      Enter a value: yes
 
-              + storage_container_reference {
-                  + kind = (known after apply)
-                  + name = (known after apply)
-                  + url  = (known after apply)
-                  + uuid = (known after apply)
-                }
-            }
-        }
-###
-# Removed output
-###
-nutanix_virtual_machine.myImportedVM: Still modifying... [id=fcb451ed-509e-480d-80b3-2d09eef6e1a0, 1m0s elapsed]
-nutanix_virtual_machine.myImportedVM: Still modifying... [id=fcb451ed-509e-480d-80b3-2d09eef6e1a0, 1m10s elapsed]
-nutanix_virtual_machine.myImportedVM: Modifications complete after 1m15s [id=fcb451ed-509e-480d-80b3-2d09eef6e1a0]
+Once the resources are provisioned, the state will be stored by default in a local file named `terraform.tfstate`; it can also be stored remotely, which works better in a team environment.
 
-Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
-```
+### Destroy
 
-Ahora tenemos una máquina virtual que se ejecuta en Nutanix administrada por Terraform que tiene 2 GB de memoria y un disco adicional de 40 GB.
+If you're using Terraform to spin up multiple environments such as lab, dev, or test environments, then destroying is a useful action.
 
-![alt_text](https://github.com/yannickstruyf3/terraform-nutanix-import-example/raw/master/images/2_updated_vm.png )
+Resources can be destroyed using the `terraform destroy` command, which is similar to `terraform apply`, but it behaves as if all of the resources have been removed from the configuration.
+
+**Enjoy!** :)
+
