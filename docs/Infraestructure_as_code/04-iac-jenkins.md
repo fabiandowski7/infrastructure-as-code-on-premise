@@ -16,6 +16,9 @@ También necesitamos hacer una transición rápida de regreso a la escuela Terra
 La respuesta es almacenar el estado en un contenedor en el propio proyecto. Entonces cualquiera puede ejecutar Terraform en la tubería y el estado remoto se almacena y comparte de forma centralizada. Terraform también gestionará el bloqueo del estado para asegurarse de que los trabajos en conflicto no se ejecuten al mismo tiempo.
 Entonces, creemos un depósito de Google Cloud Storage (cambie su-project-id en consecuencia):
 
+![image](https://user-images.githubusercontent.com/18565089/124945420-1d29a600-dfdc-11eb-995e-88917b2e1e90.png)
+
+
 Ahora necesitamos definir un backend remoto en nuestro código Terraform. Llamémoslo ```backend.tf```:
 
 ```
