@@ -9,7 +9,10 @@ Recuerde que al comienzo de esta serie defendimos el beneficio de definir la inf
 
 
 ## Git
-Necesitamos una forma de compartir nuestro código con Jenkins, por lo que es hora de enviar su directorio de trabajo a un repositorio de git alojado. Puede ser Github, BitBucket, Gitlab o cualquier otro servicio de git alojado, siempre que Jenkins pueda verlo a través de Internet. He usado Github:
+Necesitamos una forma de compartir nuestro código con Jenkins, por lo que es hora de enviar su directorio de trabajo a un repositorio de git alojado. Puede ser Github, BitBucket, Gitlab o cualquier otro servicio de git alojado, siempre que Jenkins pueda verlo a través de Internet. He usado Bitbucket Server:
+
+![image](https://user-images.githubusercontent.com/18565089/124945770-7560a800-dfdc-11eb-9281-86afcf1642ef.png)
+
 
 ## Estado remoto
 También necesitamos hacer una transición rápida de regreso a la escuela Terraform para aprender sobre el estado remoto. Anteriormente, cuando ejecutamos Terraform, notará que algunos archivos de estado se escriben en nuestro directorio local. Terraform los usa para hacer su gráfico de cambios cada vez que se ejecuta. Entonces, si ejecutamos Terraform en un contenedor elegante en una tubería, ¿dónde escribe su archivo de estado?
