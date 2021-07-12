@@ -123,10 +123,10 @@ Una vez que se aprovisionan los recursos, el estado se almacenará de forma pred
 
 ### Destroy
 
-If you're using Terraform to spin up multiple environments such as lab, dev, or test environments, then destroying is a useful action.
+Si está utilizando Terraform para activar múltiples entornos, como entornos de laboratorio, desarrollo o prueba, destruir es una acción útil.
 
-Resources can be destroyed using the `terraform destroy` command, which is similar to `terraform apply`, but it behaves as if all of the resources have been removed from the configuration.
+Los recursos se pueden destruir usando el comando `terraform destroy`, que es similar a  `terraform apply`, pero se comporta como si todos los recursos se hubieran eliminado de la configuración.
 
-**Enjoy!**
+**Disfruta!**
 
 ![image](https://user-images.githubusercontent.com/18565089/124981529-ad2f1600-e003-11eb-81b6-20cb3c3585e4.png)
