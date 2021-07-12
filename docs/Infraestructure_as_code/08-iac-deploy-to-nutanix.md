@@ -6,21 +6,23 @@
 
 ## Terraform
 
-[HashiCorp Terraform](https://www.terraform.io/) allows infrastructure to be expressed as code in a simple, human-readable language called HCL (HashiCorp Configuration Language). Terraform uses this language to provide an execution plan of changes, which can be reviewed for safety and then applied to make changes.
+[HashiCorp Terraform](https://www.terraform.io/) permite que la infraestructura se exprese como código en un lenguaje simple y legible por humanos llamado HCL (HashiCorp Configuration Language). Terraform utiliza este lenguaje para proporcionar un plan de ejecución de cambios, que puede revisarse por seguridad y luego aplicarse para realizar cambios.
 
-Almost any infrastructure type can be represented as a **resource** in Terraform. While resources are the primary construct in the Terraform language, the _behaviors_ of resources rely on their associated resource types, and these types are defined by _providers_.
+Casi cualquier tipo de infraestructura se puede representar como un **resource** en Terraform. Si bien los recursos son la construcción principal en el lenguaje Terraform, los comportamientos de los resources dependen de sus tipos de recursos asociados, y estos tipos los definen los _providers_.
 
-[Providers](https://www.terraform.io/docs/providers/index.html) are responsible for understanding API interactions and exposing resources to the outside world. Extensible providers allow Terraform to manage a broad range of resources, including hardware, iaas, paas, and saas services.
+[Providers](https://www.terraform.io/docs/providers/index.html) son responsables de comprender las interacciones de la API y de exponer los recursos al mundo exterior. Los proveedores extensibles permiten que Terraform administre una amplia gama de recursos, incluidos los servicios de hardware, iaas, paas y saas.
 
-In the example below, the `vsphere_virtual_machine` resource from the [VMware vSphere provider](https://www.terraform.io/docs/providers/vsphere/index.html) is leveraged to clone and configure multiple vSphere virtual machines.
+En el siguiente ejemplo, el `vsphere_virtual_machine` resource del [Nutanix provider](https://registry.terraform.io/providers/nutanix/nutanix/latest/docs) se aprovecha para clonar y configurar varias máquinas virtuales de Nutanix.
 
-## Requirements
+
+## Requerimientos
 
 * [Terraform](https://www.terraform.io/downloads.html) 0.12+
 
-## Configuration
+## Configuracion
 
 The set of files used to describe infrastructure in Terraform is simply known as a Terraform _configuration_.:
+El conjunto de archivos utilizados para describir la infraestructura en Terraform se conoce simplemente como _configuration_:
 
     ├── main.tf
     ├── output.tf
@@ -28,12 +30,11 @@ The set of files used to describe infrastructure in Terraform is simply known as
     └── variables.tf
 
 
-1. The `main.tf` file contains my provider definition as well as the **logic**: while _data sources_ allow data to be fetched or computed for use elsewhere in the configuration (e.g., vSphere cluster, datastore, portgroup, and so on), the _resource_ blocks describe the virtual machines to create. 
-2. The `variables.tf` file contains the variables definition within your Terraform configuration (but not the values of those variables which are defined in  `terraform.tfvars`).
-3. For all files which match `terraform.tfvars` or `*.auto.tfvars` present in the current directory, Terraform automatically loads them to populate variables. **This file has to be updated to match your infrastructure settings**.
-4. (optional) The `output.tf` file provides useful information for troubleshooting purposes.
+1. El archivo `main.tf` contiene la definición de mi proveedor, así como la **logica**: mientras que los _data sources_ permiten que los datos se obtengan o se calculen para su uso en otros lugares de la configuración (p. Ej., Clúster de Nutanix, almacén de datos, grupo de puertos, etc.), los bloques de recursos describen las máquinas virtuales a crear.
+3. El archivo `variables.tf` contiene la definición de variables dentro de su configuración de Terraform (pero no los valores de esas variables que están definidas en  `terraform.tfvars`).
+4. Para todos los archivos que coinciden con `terraform.tfvars` o `*.auto.tfvars` presentes en el directorio actual, Terraform los carga automáticamente para completar las variables. **Este archivo debe actualizarse para que coincida con la configuración de su infraestructura**.
+5. (opcional) El archivo `output.tf` proporciona información útil para solucionar problemas.
 
-> **Note:** Although .tfvars files are *usually* not distributed for security reasons, I included mine here for demonstration purposes.
 
 ## Resources
 
@@ -42,36 +43,38 @@ Two `vsphere_virtual_machine` resource blocks are defined:
  - `kubernetes_master` clones a Linux vSphere template into a new virtual machine and customize the guest.
  - `kubernetes_workers` clones a Linux vSphere template into multiple new virtual machines and customize the guests; `count.index` was used to loop over resources, but other mechanisms can be used as a replacement (such as `for_each` or `for` loops).
 
-## Execution
+## Ejecucióm
 
 ### Init
 
-The first command to run for a new configuration is  `terraform init`, which initializes various local settings and data that will be used by subsequent commands. This command will also automatically download and install any provider defined in the configuration.
+El primer comando que se ejecutará para una nueva configuración es  `terraform init`, que inicializa varias configuraciones y datos locales que serán utilizados por comandos posteriores. Este comando también descargará e instalará automáticamente cualquier proveedor definido en la configuración.
 
-    \❯ terraform init
-    
-    Initializing the backend...
-    Initializing provider plugins...
-    
-    The following providers do not have any version constraints in configuration,
-    so the latest version was installed.
-    
-    To prevent automatic upgrades to new major versions that may contain breaking
-    changes, it is recommended to add version = "..." constraints to the
-    corresponding provider blocks in configuration, with the constraint strings
-    suggested below.
-    
-    * provider.vsphere: version = "~> 1.14"
-    
-    Terraform has been successfully initialized!
-    
-    You may now begin working with Terraform. Try running "terraform plan" to see
-    any changes that are required for your infrastructure. All Terraform commands
-    should now work.
-    
-    If you ever set or change modules or backend configuration for Terraform,
-    rerun this command to reinitialize your working directory. If you forget, other
-    commands will detect it and remind you to do so if necessary.
+    \❯ + terraform init
+
+Initializing the backend...
+
+Successfully configured the backend "consul"! Terraform will automatically
+use this backend unless the backend configuration changes.
+
+Initializing provider plugins...
+- Finding nutanix/nutanix versions matching "1.2.0"...
+- Installing nutanix/nutanix v1.2.0...
+- Installed nutanix/nutanix v1.2.0 (unauthenticated)
+
+Terraform has created a lock file .terraform.lock.hcl to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
 
 ### Plan
 
