@@ -36,55 +36,56 @@ El conjunto de archivos utilizados para describir la infraestructura en Terrafor
 5. (opcional) El archivo `output.tf` proporciona información útil para solucionar problemas.
 
 
-## Resources
+## Recursos
 
-Two `vsphere_virtual_machine` resource blocks are defined:
+Se definen 3 bloques de recursos `vsphere_virtual_machine` :
 
- - `kubernetes_master` clones a Linux vSphere template into a new virtual machine and customize the guest.
- - `kubernetes_workers` clones a Linux vSphere template into multiple new virtual machines and customize the guests; `count.index` was used to loop over resources, but other mechanisms can be used as a replacement (such as `for_each` or `for` loops).
+ - `vpos_server` clona una plantilla de Nutanix de Linux (SUSE Server) en una nueva máquina virtual y personaliza el invitado.
+ - `vpos_pos1` clona una plantilla de Nutanix de Linux en varias máquinas virtuales nuevas y personaliza a los invitados; `count.index` wse usó para hacer un bucle sobre los recursos, pero se pueden usar otros mecanismos como reemplazo (como `for_each` o `for` loops).
+ - `vpos_pos2` clona una plantilla de Nutanix de Linux en varias máquinas virtuales nuevas y personaliza a los invitados; `count.index` wse usó para hacer un bucle sobre los recursos, pero se pueden usar otros mecanismos como reemplazo (como `for_each` o `for` loops).
 
-## Ejecucióm
+## Ejecución
 
 ### Init
 
 El primer comando que se ejecutará para una nueva configuración es  `terraform init`, que inicializa varias configuraciones y datos locales que serán utilizados por comandos posteriores. Este comando también descargará e instalará automáticamente cualquier proveedor definido en la configuración.
 
-    \❯ + terraform init
+    \❯ terraform init
 
-Initializing the backend...
+    Initializing the backend...
 
-Successfully configured the backend "consul"! Terraform will automatically
-use this backend unless the backend configuration changes.
+    Successfully configured the backend "consul"! Terraform will automatically
+    use this backend unless the backend configuration changes.
 
-Initializing provider plugins...
-- Finding nutanix/nutanix versions matching "1.2.0"...
-- Installing nutanix/nutanix v1.2.0...
-- Installed nutanix/nutanix v1.2.0 (unauthenticated)
+    Initializing provider plugins...
+    - Finding nutanix/nutanix versions matching "1.2.0"...
+    - Installing nutanix/nutanix v1.2.0...
+    - Installed nutanix/nutanix v1.2.0 (unauthenticated)
 
-Terraform has created a lock file .terraform.lock.hcl to record the provider
-selections it made above. Include this file in your version control repository
-so that Terraform can guarantee to make the same selections by default when
-you run "terraform init" in the future.
+    Terraform has created a lock file .terraform.lock.hcl to record the provider
+    selections it made above. Include this file in your version control repository
+    so that Terraform can guarantee to make the same selections by default when
+    you run "terraform init" in the future.
 
-Terraform has been successfully initialized!
+    Terraform has been successfully initialized!
 
-You may now begin working with Terraform. Try running "terraform plan" to see
-any changes that are required for your infrastructure. All Terraform commands
-should now work.
+    You may now begin working with Terraform. Try running "terraform plan" to see
+    any changes that are required for your infrastructure. All Terraform commands
+    should now work.
 
-If you ever set or change modules or backend configuration for Terraform,
-rerun this command to reinitialize your working directory. If you forget, other
-commands will detect it and remind you to do so if necessary.
+    If you ever set or change modules or backend configuration for Terraform,
+    rerun this command to reinitialize your working directory. If you forget, other
+    commands will detect it and remind you to do so if necessary.
 
 ### Plan
 
-The  `terraform plan`  command is used to create an execution plan. Terraform performs a refresh, unless explicitly disabled, and then determines what actions are necessary to achieve the desired state specified in the configuration files.
+El comando `terraform plan` se utiliza para crear un plan de ejecución. Terraform realiza una actualización, a menos que se deshabilite explícitamente, y luego determina qué acciones son necesarias para lograr el estado deseado especificado en los archivos de configuración.
 
-This command is a convenient way to check whether the execution plan for a set of changes matches your expectations without making any changes to real resources or to the state.
+Este comando es una forma conveniente de verificar si el plan de ejecución para un conjunto de cambios coincide con sus expectativas sin realizar ningún cambio en los recursos reales o en el estado.
 
 ### Apply
 
-The `terraform apply` command is used to **apply the changes required to reach the desired state of the configuration**.
+El comando `terraform apply` se utiliza para **aplicar los cambios necesarios para alcanzar el estado deseado de la configuración .**.
 
     \❯ terraform apply
     data.vsphere_datacenter.target_dc: Refreshing state...
@@ -92,10 +93,10 @@ The `terraform apply` command is used to **apply the changes required to reach t
     data.vsphere_compute_cluster.target_cluster: Refreshing state...
     data.vsphere_virtual_machine.source_template: Refreshing state...
     data.vsphere_datastore.target_datastore: Refreshing state...
-    vsphere_virtual_machine.kubernetes_workers[2]: Refreshing state... [id=422fd79c-755b-a2d4-bb09-c9d6476217f5]
-    vsphere_virtual_machine.kubernetes_master: Refreshing state... [id=422faaf3-2f12-b3ee-f0ed-8d602bfa4b11]
-    vsphere_virtual_machine.kubernetes_workers[1]: Refreshing state... [id=422ff5fb-7c96-1494-a865-6969a6fdd52f]
-    vsphere_virtual_machine.kubernetes_workers[0]: Refreshing state... [id=422f4d66-fc03-14ed-767b-62ade0142d19]
+    vsphere_virtual_machine.vpos_pos1[2]: Refreshing state... [id=422fd79c-755b-a2d4-bb09-c9d6476217f5]
+    vsphere_virtual_machine.vpos_server: Refreshing state... [id=422faaf3-2f12-b3ee-f0ed-8d602bfa4b11]
+    vsphere_virtual_machine.vpos_pos1[1]: Refreshing state... [id=422ff5fb-7c96-1494-a865-6969a6fdd52f]
+    vsphere_virtual_machine.vpos_pos2[0]: Refreshing state... [id=422f4d66-fc03-14ed-767b-62ade0142d19]
     
     An execution plan has been generated and is shown below.
     Resource actions are indicated with the following symbols:
@@ -104,9 +105,9 @@ The `terraform apply` command is used to **apply the changes required to reach t
     
     Terraform will perform the following actions:
     
-      # vsphere_virtual_machine.kubernetes_master will be updated in-place
-      ~ resource "vsphere_virtual_machine" "kubernetes_master" {
-          - annotation                              = "Ubuntu 18.04.3 LTS (Bionic Beaver) - 2020-01-10" -> null
+      # vsphere_virtual_machine.vpos_server will be updated in-place
+      ~ resource "vsphere_virtual_machine" "vpos_server" {
+          - annotation                              = "SUSE Linux Enterprise 12 - 2021-07-05" -> null
     
     [...]
     
@@ -118,7 +119,7 @@ The `terraform apply` command is used to **apply the changes required to reach t
     
       Enter a value: yes
 
-Once the resources are provisioned, the state will be stored by default in a local file named `terraform.tfstate`; it can also be stored remotely, which works better in a team environment.
+Una vez que se aprovisionan los recursos, el estado se almacenará de forma predeterminada en un archivo local llamado `terraform.tfstate`; también se puede almacenar de forma remota, lo que funciona mejor en un entorno de equipo. En nuestro caso se almacenará en Consul.
 
 ### Destroy
 
