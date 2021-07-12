@@ -1,5 +1,5 @@
 ## Resumen 📃
-Este proyecto está orientado a todos los DevOps que se integren al equipo de Concrete, con la finalidad de adaptarse a las tecnologías utilizadas en el proyecto, así como también herramientas esenciales para cualquier DevOps.
+Este proyecto está orientado a todos los DevOps que se integren al equipo, con la finalidad de adaptarse a las tecnologías utilizadas en el proyecto, así como también herramientas esenciales para cualquier DevOps.
 
 ## Prerrequisitos :exclamation:
 
