@@ -122,7 +122,7 @@ Si está satisfecho con el plan, siga adelante y dé su aprobación. Todo debe v
 ![1_ft2w6SyhepELB6EGILENWw](https://user-images.githubusercontent.com/18565089/124944495-5a416880-dfdb-11eb-80d0-6f1bfb9be68f.png)
 
 
-## ¡Es un excelente enfoque!
+## En Resumen...
 
 Bueno, puede ser la primera vez creando Pipelines. Sin embargo, una vez que adquiere el hábito de hacer las cosas de esta manera, realmente no lleva tiempo configurar estas herramientas y procesos. Vale la pena el esfuerzo porque gana mucho con este enfoque de GitOps / DevOps:
 - Todo se hace a través de git, lo que hace que la colaboración en equipo sea más efectiva.
